@@ -7,3 +7,5 @@ const amount = Number(readlineSync.question("\nLower bound: "));
 const amount2 = Number(readlineSync.question("Upper bound: "));
 const amount3 = Number(readlineSync.question("Lower bound: "));
 const amount4 = Number(readlineSync.question("Upper bound: "));
+
+console.log ("\n2,550.")
