@@ -8,3 +8,4 @@ const amount2 = Number(readlineSync.question("Positive integer: "));
 const amount3 = Number(readlineSync.question("Positive integer: "));
 
 console.log ("\n27.")
+k
