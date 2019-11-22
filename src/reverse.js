@@ -1,9 +1,26 @@
 const readlineSync = require("readline-sync");
 
-const MAX = (Number.MAX_SAFE_INTEGER)
+MIN = 1;
+MAX = Number.MAX_SAFE_INTEGER;
+let posInteger;
+let reverse = "";
+let digit;
 
-const amount = Number(readlineSync.question("\nPositive integer: "));
-const amount2 = Number(readlineSync.question("Positive integer: "));
-const amount3 = Number(readlineSync.question("Positive integer: "));
+console.log();
+do {
+    posInteger = Number(readlineSync.question("Positive integer: "));
+} while (posInteger < MIN || posInteger > MAX || Number.isNaN(posInteger) || posInteger != Math.floor(posInteger));
 
-console.log ("\n4, 1, 4, 7, 0, 2.")
+while (posInteger !== 0) {
+    digit = posInteger % 10;
+    posInteger = Math.floor(posInteger/10);
+    if (posInteger !== 0) {
+        reverse = reverse + digit + ", ";
+    } else {
+        reverse = reverse + digit + ".";
+    }
+}
+
+console.log("\n" + reverse);
+
+console.log();

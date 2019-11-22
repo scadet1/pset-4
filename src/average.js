@@ -1,9 +1,24 @@
 const readlineSync = require("readline-sync");
 
-const amount = Number(readlineSync.question("\nHow's life: "));
+MIN = 0;
+MAX = Number.MAX_SAFE_INTEGER;
+let nonNegativeInteger;
+let numOfIntegersEntered = 0;
+let sum = 0;
+let average = 0;
 
-console.log ("\nBecause of Comp Sci?")
+console.log();
+do {
+    nonNegativeInteger = Number(readlineSync.question("Non-negative integer: "));
+    if (nonNegativeInteger >= MIN && nonNegativeInteger < MAX) {
+        numOfIntegersEntered++;
+        sum += nonNegativeInteger;
+    }
+} while ((nonNegativeInteger >= MIN && nonNegativeInteger < MAX) || nonNegativeInteger > MAX || Number.isNaN(nonNegativeInteger) || sum == 0);
 
-const amount1 = Number(readlineSync.question("\n"));
+average = sum/numOfIntegersEntered;
 
-console.log ("\nSame")
+average = average.toLocaleString("en", {minimumFractionDigits: 3, maximumFractionDigits: 3 });
+console.log("\n" + average + ".");
+
+console.log();

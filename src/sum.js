@@ -1,11 +1,27 @@
 const readlineSync = require("readline-sync");
 
-const MIN = (Number.MIN_SAFE_INTEGER)
-const MAX = (Number.MAX_SAFE_INTEGER)
+MIN = Number.MIN_SAFE_INTEGER;
+MAX = Number.MAX_SAFE_INTEGER;
+let sum = 0;
+let lowerValue;
+let higherValue;
 
-const amount = Number(readlineSync.question("\nLower bound: "));
-const amount2 = Number(readlineSync.question("Upper bound: "));
-const amount3 = Number(readlineSync.question("Lower bound: "));
-const amount4 = Number(readlineSync.question("Upper bound: "));
+console.log();
+do {
+    lowerValue = Number(readlineSync.question("Lower bound: "));
+    higherValue = Number(readlineSync.question("Upper bound: "));
+} while ((lowerValue < MIN || higherValue > MAX) || (lowerValue >= higherValue) || Number.isNaN(lowerValue) || Number.isNaN(higherValue) || (lowerValue != Math.floor(lowerValue) || higherValue != Math.floor(higherValue)));
 
-console.log ("\n2,550.")
+while (higherValue >= lowerValue) {
+    if (lowerValue % 2 === 0) {
+        sum += lowerValue;
+        lowerValue++;
+    } else {
+        lowerValue++;
+    }
+}
+
+sum = sum.toLocaleString("en");
+console.log("\n" + sum + ".");
+
+console.log();
